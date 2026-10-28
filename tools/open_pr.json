@@ -1,0 +1,32 @@
+{
+  "name": "pulls_open",
+  "strict": true,
+  "description": "Open one draft pull request on Ledgerline's remote, from the branch repomind/issue-<n> of the issue it is for. Call it once, after reading the file and before the triage comment, which comes last, and only when the triage names a file: an issue whose file is none gets no pull request. The body names the file and proposes the change in prose; no code is committed. The result is JSON {pull_request, branch, state}; it is never empty when the pull request opened. Safe to retry: the harness keys every write and first checks for an open pull request from the same branch, so a repeat returns the existing one. Titles are capped at 120 characters and bodies at 4,000; longer is an error, not cut.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "issue": {
+        "type": "string",
+        "description": "The issue the pull request is for, such as issue-4192."
+      },
+      "branch": {
+        "type": "string",
+        "description": "Always repomind/issue-<n> with the issue's number: repomind/issue-4192 for issue-4192. Any other branch is refused."
+      },
+      "title": {
+        "type": "string",
+        "description": "One line, at most 120 characters, saying what the change fixes."
+      },
+      "body": {
+        "type": "string",
+        "description": "At most 4,000 characters: the file to change first, then the change proposed in prose and why it fixes the issue."
+      }
+    },
+    "required": ["issue", "branch", "title", "body"]
+  },
+  "examples": [
+    {"input": {"issue": "issue-4192", "branch": "repomind/issue-4192", "title": "Re-enable the export button after a failed export", "body": "File: src/components/ExportButton.tsx\n\nClear the busy state in the export's failure path as well as its success path, so a failed export leaves the button usable."}, "note": "the typical call"},
+    {"input": {"issue": "issue-4191", "branch": "repomind/issue-4191", "title": "Correct the setup steps in the README", "body": "File: README.md\n\nThe setup section names a command that no longer exists; replace it with the current one."}, "note": "a hard case: a documentation fix is still a pull request, and its file is a document"}
+  ]
+}

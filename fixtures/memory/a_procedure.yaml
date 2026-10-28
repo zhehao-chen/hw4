@@ -1,0 +1,11 @@
+# Candidate A: something RepoMind worked out during a run.
+candidate: A
+repository: ledgerline
+issue: 4191
+who: RepoMind
+where: a run of development issue 4191, run planned-4191-s01-3c9e2a
+when: "2026-10-02T14:12:09Z"
+seen: |
+  To reproduce a UI bug in Ledgerline: run `npm run build`, then `npm start`, and
+  open http://localhost:3000. The README's `npm run serve` does not exist; the
+  scripts in package.json are start, build, test and lint.

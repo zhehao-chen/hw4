@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "source": "a RepoMind triage plan for issue 4192, written for these fixtures",
+    "model": null,
+    "prompt": "prompts/planner.md",
+    "tools": [
+      "read_issue",
+      "search_repo",
+      "read_file",
+      "post_comment"
+    ]
+  },
+  "steps": [
+    {
+      "id": 1,
+      "action": "read the issue",
+      "tool": "read_issue",
+      "args": {
+        "number": 4192
+      },
+      "depends_on": [],
+      "expected_result": "the issue's title and body",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "action": "search the code for the export button's state",
+      "tool": "search_repo",
+      "args": {
+        "query": "$fill"
+      },
+      "depends_on": [
+        1
+      ],
+      "expected_result": "at least one matching path",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "action": "read the component the search found",
+      "tool": "read_file",
+      "args": {
+        "path": "$fill"
+      },
+      "depends_on": [
+        2
+      ],
+      "expected_result": "the component's code",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "action": "post the triage comment",
+      "tool": "post_comment",
+      "args": {
+        "number": 4192,
+        "body": "$fill"
+      },
+      "depends_on": [
+        1,
+        3
+      ],
+      "expected_result": "one comment whose first two lines are label: and file:",
+      "status": "pending"
+    }
+  ]
+}

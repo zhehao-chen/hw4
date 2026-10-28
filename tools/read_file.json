@@ -1,0 +1,25 @@
+{
+  "name": "code_read_file",
+  "strict": true,
+  "description": "Read one file of Ledgerline's code by its path relative to the repository root, exactly as code_search prints it, case and extension included. Use it after a search points at a file. The result is the file's text after one line naming the path and its length. An empty file comes back with that line and nothing after it; it never means the path was wrong. A path that does not exist is an error naming the closest paths that do, so fix the path and call again. Responses are capped: concise returns at most the first 8,000 characters, detailed at most 20,000, and a cut file says where it was cut.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "The file's path relative to the repository root, such as src/util/money.ts, copied from a search result. src/report.ts and src/Report.ts are different files."
+      },
+      "response_format": {
+        "type": "string",
+        "enum": ["concise", "detailed"],
+        "description": "concise costs least: the first 8,000 characters, enough for almost every file here. Choose detailed (up to 20,000) only when a concise read was cut before the part you need."
+      }
+    },
+    "required": ["path", "response_format"]
+  },
+  "examples": [
+    {"input": {"path": "src/util/money.ts", "response_format": "concise"}, "note": "the typical call: a path exactly as the search printed it"},
+    {"input": {"path": "src/components/ReportTable.tsx", "response_format": "detailed"}, "note": "a hard case: a .tsx file, extension and case exactly as printed, and detailed because the concise read was cut"}
+  ]
+}

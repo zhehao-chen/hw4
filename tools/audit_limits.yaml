@@ -1,0 +1,24 @@
+# The limits tools/audit_schemas.py holds your five definitions to. Course file:
+# do not edit it. Vendors change these limits; the course updates this file.
+#
+# Both vendors' strict-mode limits at once, as Lecture 3, slide 20, gives them, read
+# August 2026. A definition that fits these compiles on either vendor.
+read: 2026-08
+sources:
+  anthropic: "at most 20 strict tools in a request; across them at most 24 optional and 16 union-typed parameters; a nullable type counts as a union"
+  azure_openai: "every property required; additionalProperties false on every object; at most 100 properties and 5 levels of nesting; no validation keywords"
+
+strict_tools: 20         # Anthropic
+optional_params: 0       # Azure OpenAI's "every property required", so none across the five
+union_params: 16         # Anthropic, across all five; ["string", "null"] counts as one
+properties: 100          # Azure OpenAI, per tool
+depth: 5                 # Azure OpenAI, levels of nested objects
+validation_keywords:     # Azure OpenAI rejects these; they belong in your boundary check
+  [minLength, maxLength, pattern, format, minimum, maximum, exclusiveMinimum, exclusiveMaximum,
+   multipleOf, minItems, maxItems, uniqueItems, minProperties, maxProperties, patternProperties,
+   propertyNames, contains, minContains, maxContains]
+
+# The course's own rules (Lecture 3, slides 10 to 18)
+examples_per_tool: 2     # one typical, then one hard
+services: 3              # the issue tracker, the codebase, the pull requests
+response_format: [concise, detailed]   # on the tools that return content: search and read_file

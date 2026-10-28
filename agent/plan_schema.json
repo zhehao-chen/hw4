@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["steps"],
+  "properties": {
+    "steps": {
+      "type": "array",
+      "description": "The plan's steps, in the order they run.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "action", "tool", "args_json", "depends_on", "expected_result", "status"],
+        "properties": {
+          "id": {"type": "integer", "description": "Unique within the plan, from 1."},
+          "action": {"type": "string", "description": "What the step does, in a few words."},
+          "tool": {"type": ["string", "null"], "description": "The one tool the step calls."},
+          "args_json": {"type": "string", "description": "The tool's arguments as a JSON object, encoded as a string. \"$fill\" marks a value the executor fills in from earlier results."},
+          "depends_on": {"type": "array", "items": {"type": "integer"}, "description": "Ids of earlier steps whose results this step uses."},
+          "expected_result": {"type": ["string", "null"], "description": "What the step returns when it worked, checkable from outside."},
+          "status": {"type": "string", "enum": ["pending", "done", "failed"], "description": "pending when written."}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "source": "Lecture 2, slide 19: the plan a model wrote for the export bug, with the fields the slide leaves out (depends_on, expected_result, and its own tool list) added",
+    "model": null,
+    "prompt": null,
+    "tools": [
+      "browse",
+      "edit_file",
+      "search_repo"
+    ]
+  },
+  "steps": [
+    {
+      "id": 1,
+      "action": "open the reports page",
+      "tool": "browse",
+      "args": {
+        "url": "/reports"
+      },
+      "depends_on": [],
+      "expected_result": "the reports page, with its Export button",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "action": "apply the fix from step 4",
+      "tool": "edit_file",
+      "args": {
+        "path": "$fill",
+        "patch": "$fill"
+      },
+      "depends_on": [
+        4
+      ],
+      "expected_result": "the handler changed as step 4 found",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "action": "think about the likely cause",
+      "tool": null,
+      "args": {},
+      "depends_on": [],
+      "expected_result": null,
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "action": "locate the handler",
+      "tool": "search_repo",
+      "args": {
+        "query": "export"
+      },
+      "depends_on": [],
+      "expected_result": "the path of the export handler",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "action": "export the report",
+      "tool": "export_report",
+      "args": {
+        "format": "csv"
+      },
+      "depends_on": [],
+      "expected_result": "a CSV file with the report's rows",
+      "status": "pending"
+    }
+  ]
+}

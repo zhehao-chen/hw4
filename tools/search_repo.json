@@ -1,0 +1,29 @@
+{
+  "name": "code_search",
+  "strict": true,
+  "description": "Search Ledgerline's code, every text file in the repository except config/, for a literal string, case-insensitively, line by line. Use it to find which files mention an identifier, an error message or a term from the issue; it never matches file names, so call code_read_file once you know a path. It reads a prebuilt index, whose age comes back as index_age. The result is JSON: {query, query_valid, count, truncated, index_age, results: [{path, line, excerpt}]}. An empty result is a success: count 0 with query_valid true means nothing matched, so try a shorter or a different term. A malformed query (empty, longer than 200 characters, or a path_glob that is not a glob) is an error saying how to fix it. Responses are capped: concise returns at most 10 results with 120-character excerpts, detailed at most 20 with 300, and truncated says when more matched.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The literal text to find, at most 200 characters. A short, distinctive term (an identifier such as minorDigits, a quoted error message) finds the responsible file; a whole sentence from the issue usually matches nothing."
+      },
+      "path_glob": {
+        "type": ["string", "null"],
+        "description": "Search only paths matching this glob, relative to the repository root, such as src/util/** or src/**/*.ts. null searches everything. Set it when a term also fills docs/ or README.md and you want the code."
+      },
+      "response_format": {
+        "type": "string",
+        "enum": ["concise", "detailed"],
+        "description": "concise costs least: at most 10 results, short excerpts. Choose detailed (at most 20, longer excerpts) only when concise came back truncated or its excerpts were too short to decide."
+      }
+    },
+    "required": ["query", "path_glob", "response_format"]
+  },
+  "examples": [
+    {"input": {"query": "minorDigits", "path_glob": null, "response_format": "concise"}, "note": "the typical call: one identifier, everywhere, concise"},
+    {"input": {"query": "Invalid date", "path_glob": "src/**/*.ts", "response_format": "detailed"}, "note": "a hard case: an error message that also appears in the docs, so the glob keeps to the code, and detailed because concise came back truncated"}
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "source": "a coding agent's plan for the export bug of Lecture 2, slide 53, written for these fixtures; its tools are not RepoMind's",
+    "model": null,
+    "prompt": null,
+    "tools": [
+      "run_tests",
+      "search_repo",
+      "read_file",
+      "edit_file",
+      "browse"
+    ]
+  },
+  "steps": [
+    {
+      "id": 1,
+      "action": "reproduce the export failure",
+      "tool": "run_tests",
+      "args": {
+        "test": "test_export_csv"
+      },
+      "depends_on": [],
+      "expected_result": "test_export_csv fails",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "action": "locate the handler",
+      "tool": "search_repo",
+      "args": {
+        "query": "export"
+      },
+      "depends_on": [
+        1
+      ],
+      "expected_result": "the path of the export handler",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "action": "read the handler",
+      "tool": "read_file",
+      "args": {
+        "path": "$fill"
+      },
+      "depends_on": [
+        2
+      ],
+      "expected_result": "the handler's code",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "action": "patch the handler",
+      "tool": "edit_file",
+      "args": {
+        "path": "$fill",
+        "patch": "$fill"
+      },
+      "depends_on": [
+        3
+      ],
+      "expected_result": "the handler changed",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "action": "re-run the failing case",
+      "tool": "run_tests",
+      "args": {
+        "test": "test_export_csv"
+      },
+      "depends_on": [
+        4
+      ],
+      "expected_result": "test_export_csv passes",
+      "status": "pending"
+    }
+  ]
+}

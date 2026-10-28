@@ -1,0 +1,4 @@
+# Assignment 1's bounds, each with its reason.
+max_steps: 12          # the task needs read, two or three searches, a comment and a stop; 12 leaves room and caps the worst case
+max_tokens: 250000     # about the worst case at 12 steps with a large repository result per step; below the 400,000 harness ceiling
+wall_clock_s: 180      # three minutes: past this a triage comment is no longer interactive

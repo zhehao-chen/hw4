@@ -1,0 +1,10 @@
+# Which of your tools plays each of RepoMind's five roles, and what each calls the
+# arguments the checker and the scripted models need (checks/FORMATS.md, section
+# 11.2). Rename a tool or one of these arguments in tools/*.json, and change it
+# here too. `python tools/audit_schemas.py` checks that the two agree.
+
+read_issue: {tool: issues_read,    args: {number: issue}}
+search:     {tool: code_search,    args: {query: query, path: path_glob}}
+read_file:  {tool: code_read_file, args: {path: path}}
+comment:    {tool: issues_comment, args: {number: issue, body: body}}
+open_pr:    {tool: pulls_open,     args: {number: issue, branch: branch, title: title, body: body}}

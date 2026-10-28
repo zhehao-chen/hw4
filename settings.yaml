@@ -1,0 +1,47 @@
+# RepoMind settings.
+#
+# YOUR MODEL. Use your Assignment 3 model: copy the provider, model, base_url and
+# api_key_env lines from your Assignment 3 repository's settings.yaml, and change
+# nothing else in this file. Any vendor's model with tool calling works. Hold it
+# fixed for the whole assignment: Part D compares runs made on it. The model is
+# named here and in pricing.yaml, nowhere else.
+#
+#   Claude, through Anthropic's API:
+#     provider: anthropic
+#     model: <a Claude model name>
+#     api_key_env: null              # null reads ANTHROPIC_API_KEY
+#
+#   Anything with an OpenAI-compatible API (OpenAI, Google Gemini, Mistral,
+#   DeepSeek, Groq, OpenRouter, a local Ollama or vLLM server, ...):
+#     provider: openai-compatible
+#     model: <the model name your provider uses>
+#     base_url: <your provider's endpoint; null for OpenAI itself>
+#     api_key_env: <the environment variable that holds your key; null reads OPENAI_API_KEY>
+#
+# Then add your model's price line to pricing.yaml and run `make ping`.
+
+provider: null
+model: null
+base_url: null
+api_key_env: null
+
+# Output cap for one model response. Lower it if your model's limit is smaller.
+max_tokens: 8000
+
+# Anthropic only. Thinking effort: null leaves the API default; otherwise low |
+# medium | high | xhigh | max. Held fixed across every configuration you compare.
+effort: null
+
+# Anthropic only. "default" lets the API re-run a declined request on the model
+# Anthropic recommends for that refusal category; null turns it off. The model
+# that actually served each call is recorded in the trace and priced.
+fallbacks: null
+
+# Hard ceilings, enforced by the harness outside your code.
+# Your own loop's token budget must sit below session_token_ceiling.
+session_token_ceiling: 400000      # one run
+lab_token_ceiling: 3500000         # every run in this assignment, summed from runs/_ledger.jsonl
+
+# How many runs the runner executes at once. On a free tier or if you hit rate
+# limits, pass --jobs 1 to run.py rather than editing this file.
+jobs: 4

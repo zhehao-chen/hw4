@@ -1,0 +1,7 @@
+# runs/ and tracker/ are NOT ignored: commit them when you submit a lab, because
+# the checker reads both.
+.venv/
+.env
+__pycache__/
+*.pyc
+.DS_Store

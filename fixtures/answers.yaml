@@ -1,0 +1,18 @@
+# Known answers for every Assignment 1 issue. Tune only on the dev issues; the
+# evaluation issues are for measurement (Assignment 1, Part B).
+#
+# label: one of bug | feature | question | docs   (definitions: checks/FORMATS.md, section 1)
+# file:  the file most responsible, relative to fixtures/repo, or none
+
+eval:
+  4201: {label: bug,      file: src/notifications/templates.ts}
+  4202: {label: feature,  file: src/exportUtils.ts}
+  4203: {label: bug,      file: src/ingest/parser.ts}
+  4204: {label: bug,      file: src/util/dates.ts}
+  4205: {label: question, file: none}
+  4206: {label: bug,      file: src/ingest/dedupe.ts}
+  4207: {label: bug,      file: src/export/scheduler.ts}   # closed, then reopened (Assignment 4)
+
+dev:
+  4191: {label: docs,     file: README.md}
+  4192: {label: bug,      file: src/components/ExportButton.tsx}

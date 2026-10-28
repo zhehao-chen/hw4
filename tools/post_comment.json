@@ -1,0 +1,24 @@
+{
+  "name": "issues_comment",
+  "strict": true,
+  "description": "Post one comment on an issue in Ledgerline's tracker. It is public: the reporter reads it. Call it once per triage, as the run's last write: after reading the file you will name, and after the pull request when there is one. The body's first two lines must be 'label: <bug | feature | question | docs>' and 'file: <path relative to the repository root, or none>'. The result is JSON {comment, issue}, the new comment's identifier; it is never empty when the comment posted. Safe to retry: the harness keys every write, so a repeat of the same comment returns the first one and posts nothing. Bodies are capped at 2,000 characters; a longer body is an error, not cut.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "issue": {
+        "type": "string",
+        "description": "The issue to comment on, such as issue-4192: the one you read."
+      },
+      "body": {
+        "type": "string",
+        "description": "At most 2,000 characters: the label line, the file line, then one or two sentences on why that file. A question's file is none."
+      }
+    },
+    "required": ["issue", "body"]
+  },
+  "examples": [
+    {"input": {"issue": "issue-4192", "body": "label: bug\nfile: src/components/ExportButton.tsx\n\nThe button is never re-enabled when an export fails."}, "note": "the typical call: a bug, with the file the code is wrong in"},
+    {"input": {"issue": "issue-4190", "body": "label: question\nfile: none\n\nThe reporter asks how a setting works; nothing needs to change."}, "note": "a hard case: a question names no file, so the file line says none"}
+  ]
+}

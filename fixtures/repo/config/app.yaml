@@ -1,0 +1,32 @@
+# Non-secret defaults. Environment variables override anything here, and
+# secrets (database URL, keys, SMTP credentials) only ever come from the
+# environment. Point APP_CONFIG at a different file per environment.
+
+env: development
+port: 3000
+logLevel: info
+
+db:
+  poolSize: 10
+  statementTimeoutMs: 15000
+
+storage:
+  region: eu-west-1
+  # Uncomment when running against a local MinIO container.
+  # endpoint: http://localhost:9000
+
+queue:
+  concurrency: 2
+  pollIntervalMs: 2000
+  maxAttempts: 5
+
+smtp:
+  port: 587
+  from: "Ledgerline <no-reply@ledgerline.app>"
+
+auth:
+  tokenTtlMinutes: 60
+  resetTokenTtlMinutes: 30
+
+uploads:
+  maxBytes: 10485760 # 10 MB

@@ -1,0 +1,43 @@
+# The price sheet. Every cost in every assignment is computed from this file.
+#
+# Prices are perishable. The course re-verifies its rows before each term and
+# changes read_date when it does. Never hard-code a price anywhere else.
+#
+# YOUR MODEL'S LINE. If your model is not listed below, add one line under
+# `models:`, named exactly as settings.yaml names it, from your vendor's own
+# price page, with that page and the date you read it:
+#
+#   my-model-name: {input: 0.40, output: 1.60, cache_read: 0.10, source: "https://...", read: 2026-10-05}
+#
+# Prices are USD per million tokens. input and output are required. Give
+# cache_read if your vendor discounts cached input, and cache_write_5m /
+# cache_write_1h if it charges for cache writes; any you leave out is charged at
+# the input price. A model reported under a dated name (my-model-name-2026-01-01)
+# uses the line whose name it starts with. `make ping` says UNPRICED if no line
+# matches; an unpriced call counts as $0, which makes every cost comparison wrong.
+# On a free tier, still use the paid rate your vendor's page lists: the assignments
+# measure what your designs would cost to run.
+
+read_date: 2026-06-24
+source: >-
+  Anthropic API pricing, first-party rates, as cached in the Claude API reference
+  on 2026-06-24. Re-verify at https://platform.claude.com/docs/en/about-claude/pricing
+unit: USD per million tokens
+
+# Cache pricing follows the published multipliers of the base input price:
+# a 5-minute cache write is 1.25x, a 1-hour write is 2x, a cache read is 0.1x.
+
+models:
+  # Claude, read on read_date above.
+  claude-opus-5:     {input: 5.00, output: 25.00, cache_write_5m: 6.25, cache_write_1h: 10.00, cache_read: 0.50}
+  claude-opus-4-8:   {input: 5.00, output: 25.00, cache_write_5m: 6.25, cache_write_1h: 10.00, cache_read: 0.50}   # refusal fallback target
+  claude-sonnet-5:   {input: 2.00, output: 10.00, cache_write_5m: 2.50, cache_write_1h: 4.00,  cache_read: 0.20}
+  # Claude Haiku 5.5 is priced by prompt length; these are its rates for prompts up to
+  # 100,000 tokens, which every request in these assignments is (over it: 0.50 and 2.50).
+  claude-haiku-5-5:  {input: 0.10, output: 0.50,  cache_write_5m: 0.125, cache_write_1h: 0.20, cache_read: 0.01, source: "https://platform.claude.com/docs/en/about-claude/pricing", read: 2026-10-11}
+  claude-haiku-4-5:  {input: 1.00, output: 5.00,  cache_write_5m: 1.25, cache_write_1h: 2.00,  cache_read: 0.10}
+  never-stops:       {input: 0.00, output: 0.00,  cache_write_5m: 0.00, cache_write_1h: 0.00,  cache_read: 0.00}   # the scripted model; free
+
+  # Google Gemini, paid tier (use it on the free tier too: the assignments measure what a design would cost).
+  gemini-3.5-flash-lite: {input: 0.30, output: 2.50, cache_read: 0.03,  source: "https://ai.google.dev/gemini-api/docs/pricing (updated 2026-10-09)", read: 2026-10-11}
+  gemini-3.1-flash-lite: {input: 0.25, output: 1.50, cache_read: 0.025, source: "https://ai.google.dev/gemini-api/docs/pricing (updated 2026-10-09)", read: 2026-10-11}
