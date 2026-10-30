@@ -20,8 +20,8 @@
 #
 # Then add your model's price line to pricing.yaml and run `make ping`.
 
-provider: null
-model: null
+provider: openai-compatible
+model: gpt-4o-mini
 base_url: null
 api_key_env: null
 

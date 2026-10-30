@@ -1,0 +1,154 @@
+[
+ {
+  "run_id": "planned-4201-s01-abe8c1",
+  "step": 1,
+  "when": "after",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   1
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-281d2e",
+  "step": 1,
+  "when": "during",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   2
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-bbd19f",
+  "step": 2,
+  "when": "after",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   3
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-a8dcb6",
+  "step": 2,
+  "when": "during",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   4
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-c2212c",
+  "step": 3,
+  "when": "after",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   5
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-0a7d23",
+  "step": 3,
+  "when": "during",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   6
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/api/auth.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-c0a6af",
+  "step": 4,
+  "when": "after",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   7
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-93efd6",
+  "step": 4,
+  "when": "during",
+  "comments": 1,
+  "open_prs": 1,
+  "matches": true,
+  "comment_ids": [
+   8
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/notifications/templates.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-4f30fe",
+  "step": 5,
+  "when": "after",
+  "comments": 2,
+  "open_prs": 0,
+  "matches": false,
+  "comment_ids": [
+   9,
+   10
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/api/auth.ts"
+  }
+ },
+ {
+  "run_id": "planned-4201-s01-59bdfb",
+  "step": 5,
+  "when": "during",
+  "comments": 2,
+  "open_prs": 0,
+  "matches": false,
+  "comment_ids": [
+   11,
+   12
+  ],
+  "findings": {
+   "label": "bug",
+   "file": "src/api/auth.ts"
+  }
+ }
+]

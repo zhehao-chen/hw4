@@ -1,19 +1,268 @@
 {
-  "plan_marks": [],
-  "durability": null,
-  "uncrashed_run_id": null,
-  "matrix_derived": [],
-  "matrix_uuid": [],
-  "duplicate_comment_ids": {},
-  "reopened": {
-    "with_store": {"runs": 0, "passes": 0, "mean_tool_calls": null, "mean_tokens": null, "run_ids": []},
-    "empty_store": {"runs": 0, "passes": 0, "mean_tool_calls": null, "mean_tokens": null, "run_ids": []}
+  "plan_marks": [
+    {
+      "step": 1,
+      "kind": "read",
+      "checkpoint": "after"
+    },
+    {
+      "step": 2,
+      "kind": "read",
+      "checkpoint": "after"
+    },
+    {
+      "step": 3,
+      "kind": "read",
+      "checkpoint": "after"
+    },
+    {
+      "step": 4,
+      "kind": "keyed_write",
+      "checkpoint": "before"
+    },
+    {
+      "step": 5,
+      "kind": "keyed_write",
+      "checkpoint": "before"
+    }
+  ],
+  "durability": "sync",
+  "uncrashed_run_id": "planned-4201-s01-aa72c7",
+  "matrix_derived": [
+    {
+      "run_id": "planned-4201-s01-8020b8",
+      "step": 1,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-196b1f",
+      "step": 1,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-129b15",
+      "step": 2,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-dee9cb",
+      "step": 2,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-2e1cb0",
+      "step": 3,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-c8b9d5",
+      "step": 3,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-47ce2b",
+      "step": 4,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-7bd742",
+      "step": 4,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-74d278",
+      "step": 5,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-06e0d5",
+      "step": 5,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    }
+  ],
+  "matrix_uuid": [
+    {
+      "run_id": "planned-4201-s01-abe8c1",
+      "step": 1,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-281d2e",
+      "step": 1,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-bbd19f",
+      "step": 2,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-a8dcb6",
+      "step": 2,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-c2212c",
+      "step": 3,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-0a7d23",
+      "step": 3,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-c0a6af",
+      "step": 4,
+      "when": "after",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-93efd6",
+      "step": 4,
+      "when": "during",
+      "comments": 1,
+      "open_prs": 1,
+      "matches": true
+    },
+    {
+      "run_id": "planned-4201-s01-4f30fe",
+      "step": 5,
+      "when": "after",
+      "comments": 2,
+      "open_prs": 0,
+      "matches": false
+    },
+    {
+      "run_id": "planned-4201-s01-59bdfb",
+      "step": 5,
+      "when": "during",
+      "comments": 2,
+      "open_prs": 0,
+      "matches": false
+    }
+  ],
+  "duplicate_comment_ids": {
+    "planned-4201-s01-4f30fe": [
+      9,
+      10
+    ],
+    "planned-4201-s01-59bdfb": [
+      11,
+      12
+    ]
   },
-  "checkpoint_bytes": {"structured": null, "with_conversation": null, "runs": 0},
-  "contradiction_test": [],
+  "reopened": {
+    "with_store": {
+      "runs": 5,
+      "passes": 0,
+      "mean_tool_calls": 6.8,
+      "mean_tokens": 13286,
+      "run_ids": [
+        "planned-4207-s01-da7337",
+        "planned-4207-s02-e60821",
+        "planned-4207-s03-610777",
+        "planned-4207-s04-bece34",
+        "planned-4207-s05-9f7f55"
+      ]
+    },
+    "empty_store": {
+      "runs": 5,
+      "passes": 0,
+      "mean_tool_calls": 5.8,
+      "mean_tokens": 10235,
+      "run_ids": [
+        "planned-4207-s01-00d251",
+        "planned-4207-s02-7ae91d",
+        "planned-4207-s03-dadffe",
+        "planned-4207-s04-1bbff9",
+        "planned-4207-s05-22b74a"
+      ]
+    }
+  },
+  "checkpoint_bytes": {
+    "structured": 38132,
+    "with_conversation": 207358,
+    "runs": 3
+  },
+  "contradiction_test": [
+    10
+  ],
   "forgetting": {
-    "attention": {"fact": null, "effect": {}, "lost": null, "fixed": null},
-    "compaction": {"fact": null, "effect": {}, "lost": null, "fixed": null},
-    "session": {"fact": null, "effect": {}, "stated": null, "lost": null, "fixed": null}
+    "attention": {
+      "fact": "Nobody ever built a way for the Export button to come back after a failed export; the team thinks of that as work that has not been done yet, rather than something that broke.",
+      "effect": {
+        "label": "feature"
+      },
+      "lost": "planned-4192-s01-ff046b",
+      "fixed": "planned-4192-s01-58d373"
+    },
+    "compaction": {
+      "fact": "Issue 4192 is a feature request, not a bug: Ledgerline has never re-enabled the Export button after a failed export, and the maintainers want that built as new behaviour. Label it feature.",
+      "effect": {
+        "label": "feature"
+      },
+      "lost": "planned-4192-s01-5888f5",
+      "fixed": "planned-4192-s01-64716d"
+    },
+    "session": {
+      "fact": "Issue 4192 is a feature request, not a bug: Ledgerline has never re-enabled the Export button after a failed export, and the maintainers want that built as new behaviour. Label it feature.",
+      "effect": {
+        "label": "feature"
+      },
+      "stated": "planned-4192-s01-760d56",
+      "lost": "planned-4192-s01-66b243",
+      "fixed": "planned-4192-s01-4ad4c6"
+    }
   }
 }
